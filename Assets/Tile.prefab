@@ -278,11 +278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c601a53cb250343b2be1b4eb085eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseColor: {r: 0.24296904, g: 0.7268633, b: 0.7924528, a: 1}
-  _offsetColor: {r: 0.13777146, g: 0.6792453, b: 0.43388724, a: 1}
-  _notPassibleColor: {r: 0, g: 0, b: 0, a: 1}
-  _roughColor: {r: 0.5754717, g: 0.17101282, b: 0.17101282, a: 1}
-  _goalColor: {r: 1, g: 1, b: 1, a: 1}
+  _baseColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+  _offsetColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  _ObstacleColor: {r: 0, g: 0, b: 0, a: 0}
+  _MudColor: {r: 0, g: 0, b: 0, a: 0}
+  _goalColor: {r: 0.73763067, g: 1, b: 0.7216981, a: 1}
   _renderer: {fileID: 2127830507114811685}
   _highlight: {fileID: 7106162485478473776}
   _text: {fileID: 1724892196016947962}
@@ -296,7 +296,7 @@ MonoBehaviour:
   _NWArrow: {fileID: 21300000, guid: 9e17d98a482a7b244bdd31dfee793229, type: 3}
   _SEArrow: {fileID: 21300000, guid: 98617c882f907d4428a2dbb01ef12e4d, type: 3}
   _SWArrow: {fileID: 21300000, guid: b24cd1e51ce88904198d6fa5c253ac75, type: 3}
-  _Goal: {fileID: 21300000, guid: ad4207656ae5ffc4abc9d7e073143283, type: 3}
+  _Goal: {fileID: 21300000, guid: 0ba6ee02ece40e64a8aa242173d66d77, type: 3}
   _isOffset: 0
   _isGoal: 0
   _direction: {x: 0, y: 0}

@@ -7,7 +7,7 @@ public class InfoBlock : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Transform _transform;
     [SerializeField] GridManager _manager;
-    [SerializeField] Color _isGoingGoal, _isBuildingBlocks, _isBuildingPaths;
+    [SerializeField] Color _isGoingGoal, _isBuildingObstacles, _isBuildingMud;
     void Start()
     {
         //Vector3 curPos = _transform.localPosition;
@@ -22,11 +22,11 @@ public class InfoBlock : MonoBehaviour
     {
         if (_manager.GetIsBuildingBlocks())
         {
-            GetComponent<MeshRenderer>().material.color = _isBuildingBlocks;
+            GetComponent<MeshRenderer>().material.color = _isBuildingObstacles;
         }
         else if (_manager.GetIsBuildingPaths()) 
         {
-            GetComponent<MeshRenderer>().material.color = _isBuildingPaths;
+            GetComponent<MeshRenderer>().material.color = _isBuildingMud;
 
         }
         else 

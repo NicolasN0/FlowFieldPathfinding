@@ -60,10 +60,10 @@ public class GridManager : MonoBehaviour
                 Debug.Log("Path");
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 id = GetIDFromWorldPos(mousePos);
-                _costField[(int)id.x, (int)id.y] = byte.MaxValue;
+                _costField[(int)id.x, (int)id.y] = 4;
                 _tiles.TryGetValue(id, out var t);
-                t.SetInPassable(true);
-                t.SetIsRough(false);
+                t.SetIsObstacle(false);
+                t.SetIsMud(true);
             }
             else if (_isBuildingBlocks) 
             {
@@ -82,8 +82,8 @@ public class GridManager : MonoBehaviour
 
                 Vector2 id = GetIDFromWorldPos(mousePos);
                 _tiles.TryGetValue(id, out var t);
-                t.SetInPassable(false);
-                t.SetIsRough(false);
+                t.SetIsObstacle(false);
+                t.SetIsMud(false);
             }
 
 
@@ -100,8 +100,8 @@ public class GridManager : MonoBehaviour
                 Vector2 id = GetIDFromWorldPos(mousePos);
                 _costField[(int)id.x, (int)id.y] = 1;
                 _tiles.TryGetValue(id, out var t);
-                t.SetInPassable(false);
-                t.SetIsRough(false);
+                t.SetIsObstacle(false);
+                t.SetIsMud(false);
                 t._isGoal = false;
             }
             else
@@ -111,7 +111,7 @@ public class GridManager : MonoBehaviour
                 _costField[(int)id.x, (int)id.y] = 4;
                 _tiles.TryGetValue(id, out var t);
                 //t.SetInPassable(true);
-                t.SetIsRough(true);
+                t.SetIsMud(true);
                 //t.SetInPassable(false);
             }
         }
@@ -210,14 +210,12 @@ public class GridManager : MonoBehaviour
     public Tile GetTileFromPos(Vector2 Pos) 
     {       
         Vector2 loc = new Vector2(Mathf.Ceil(Pos.x + _cellsize / 2), Mathf.Ceil(Pos.y + _cellsize / 2));
-        //BECAUSE ITS ZERO BASED?
         loc.x--;
         loc.y--;
         if (_tiles.TryGetValue(loc, out var _tile))
         {
             return _tile;
         }
-        Debug.Log("KUUUUT");
         return null;
     }
 
@@ -238,7 +236,6 @@ public class GridManager : MonoBehaviour
     private Vector2 GetIDFromWorldPos(Vector2 worldPos) 
     {
         Vector2 ID = new Vector2(Mathf.Ceil(worldPos.x + _cellsize / 2), Mathf.Ceil(worldPos.y + _cellsize / 2));
-        //BECAUSE ITS ZERO BASED?
         ID.x--;
         ID.y--;
         return ID;
@@ -311,8 +308,6 @@ public class GridManager : MonoBehaviour
     {
         
         _integrationField = new int[_width, _height];
-        //LIST TRASH I GUESS? TRY QUEUE
-        //List<Vector2> openlist;
         Queue<Vector2> openlist = new Queue<Vector2>();
         //RESET ALL VALUES TO SOMETHING BIG
         for (int x = 0; x < _width; x++)
@@ -324,8 +319,7 @@ public class GridManager : MonoBehaviour
         }
 
         //SET GOAL NODE TO 0 AND ADD TO QUEUE
-        //Vector2 goalnode = new Vector2(_width / 2, _height / 2);//DO MIDDLE FOR TEST
-        Vector2 goalnode = GetIDFromWorldPos(goalPos); //TEST
+        Vector2 goalnode = GetIDFromWorldPos(goalPos);
         _goalNode = goalnode;
         _costField[(int)goalnode.x, (int)goalnode.y] = 0;
         _integrationField[(int)goalnode.x,(int)goalnode.y] = 0;
@@ -335,6 +329,9 @@ public class GridManager : MonoBehaviour
         //COLOR GOAL NODE
         _tiles.TryGetValue(goalnode, out var t);
         t._isGoal = true;
+
+
+        //SET COST FOR REST
         while (openlist.Count > 0) 
         {
             Vector2 curID = openlist.Dequeue();

@@ -415,6 +415,50 @@ PrefabInstance:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 1652611373}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isGoingGoal.b
+      value: 0.7706131
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isGoingGoal.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isGoingGoal.r
+      value: 0.5801887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingMud.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingMud.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingMud.g
+      value: 0.8616241
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingMud.r
+      value: 0.5518868
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingObstacles.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingObstacles.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingObstacles.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193740985175317894, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
+      propertyPath: _isBuildingObstacles.r
+      value: 0.5471698
+      objectReference: {fileID: 0}
     - target: {fileID: 1193740985175317945, guid: 0bba3e262c4b3f44aa84938e0cb9f4a5, type: 3}
       propertyPath: m_Name
       value: InfoBox

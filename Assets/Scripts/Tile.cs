@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color _baseColor, _offsetColor, _notPassibleColor, _roughColor,_goalColor;
+    [SerializeField] private Color _baseColor, _offsetColor, _ObstacleColor, _MudColor,_goalColor;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
     [SerializeField] private GameObject _text;
@@ -14,8 +14,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private Sprite _upArrow, _downArrow, _leftArrow, _rightArrow, _NEArrow, _NWArrow, _SEArrow, _SWArrow,_Goal;
     //[SerializeField] private Vector2 _velocity;
 
-    private bool _isInPassable;
-    private bool _isRough;
+    private bool _isObstacle;
+    private bool _isMud;
     public bool _isOffset;
     public bool _isGoal;
     public Vector2 _direction;
@@ -26,8 +26,8 @@ public class Tile : MonoBehaviour
     private void Start()
     {
         // RectTransform rt = 
-        _isInPassable = false;
-        _isRough = false;
+        _isObstacle = false;
+        _isMud = false;
        InitializeVectors();
         _sprite.GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -55,13 +55,13 @@ public class Tile : MonoBehaviour
         {
             _renderer.color = _goalColor;
         }
-        else if (_isInPassable == true) 
+        else if (_isObstacle == true) 
         {
-            _renderer.color = _notPassibleColor;
+            _renderer.color = _ObstacleColor;
         }
-        else if(_isRough == true)
+        else if(_isMud == true)
         {
-            _renderer.color = _roughColor;
+            _renderer.color = _MudColor;
         }
         else 
         {
@@ -96,14 +96,14 @@ public class Tile : MonoBehaviour
         _text.GetComponent<TextMesh>().text = text;
     }
 
-    public void SetInPassable(bool isPassable)
+    public void SetIsObstacle(bool isPassable)
     {
-        _isInPassable = isPassable;
+        _isObstacle = isPassable;
     }
 
-    public void SetIsRough(bool isRough) 
+    public void SetIsMud(bool isRough) 
     {
-        _isRough = isRough;
+        _isMud = isRough;
     }
 
     private void SetSprite()
